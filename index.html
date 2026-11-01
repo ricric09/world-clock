@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f5f6fa" />
+    <title>Orbit — World Clock</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></div>
+          <span>orbit</span>
+        </div>
+
+        <div class="sidebar-heading">
+          <p class="eyebrow">YOUR CLOCKS</p>
+          <button class="icon-button" id="clearButton" title="Clear selected clocks" aria-label="Clear selected clocks">↗</button>
+        </div>
+        <div class="selected-list" id="selectedList"></div>
+
+        <div class="sidebar-heading countries-heading">
+          <p class="eyebrow">ADD A LOCATION</p>
+          <span class="count" id="locationCount"></span>
+        </div>
+        <label class="search">
+          <span aria-hidden="true">⌕</span>
+          <input id="searchInput" type="search" placeholder="Search countries or cities" autocomplete="off" />
+        </label>
+        <div class="country-list" id="countryList"></div>
+
+        <div class="sidebar-footer">
+          <span class="status-dot"></span>
+          <span>Times update automatically</span>
+        </div>
+      </aside>
+
+      <section class="content">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">WORLD CLOCK</p>
+            <h1>Good morning, <span id="greetingName">traveler</span><span class="title-dot">.</span></h1>
+          </div>
+          <div class="local-time">
+            <span class="local-label">YOUR LOCAL TIME</span>
+            <strong id="localTime">--:--</strong>
+            <span id="localDate">---</span>
+          </div>
+        </header>
+
+        <div class="hero-grid">
+          <section class="clock-card">
+            <div class="card-topline">
+              <div>
+                <p class="eyebrow">MULTI-ZONE VIEW</p>
+                <h2>One clock, every place.</h2>
+              </div>
+              <div class="live-pill"><span></span> LIVE</div>
+            </div>
+            <div class="clock-stage">
+              <div class="clock-face" id="clockFace" aria-label="Multi-zone analog clock">
+                <div class="clock-center"></div>
+                <div class="clock-hand hour-hand"></div>
+                <div class="clock-hand minute-hand"></div>
+                <div class="clock-hand second-hand"></div>
+                <div class="clock-label twelve">12</div>
+                <div class="clock-label three">3</div>
+                <div class="clock-label six">6</div>
+                <div class="clock-label nine">9</div>
+              </div>
+              <div class="clock-note">
+                <span class="note-line"></span>
+                <span>Each color marks the local hour<br />in your selected locations.</span>
+              </div>
+            </div>
+            <div class="clock-legend" id="clockLegend"></div>
+          </section>
+
+          <section class="overview-card">
+            <div class="card-topline">
+              <div>
+                <p class="eyebrow">AT A GLANCE</p>
+                <h2>Across the day</h2>
+              </div>
+              <span class="date-badge" id="todayDate">---</span>
+            </div>
+            <div class="day-bar">
+              <div class="day-bar-fill"></div>
+              <div class="day-marker" id="dayMarker"></div>
+            </div>
+            <div class="day-labels"><span>12 AM</span><span>6 AM</span><span>12 PM</span><span>6 PM</span><span>12 AM</span></div>
+            <label class="timeline-control">
+              <span id="timelineValue">Now</span>
+              <input id="timelineSlider" type="range" min="0" max="1440" step="15" aria-label="Change time of day" />
+              <button id="liveButton" type="button" hidden>Return to live</button>
+            </label>
+            <div class="location-summary" id="locationSummary"></div>
+          </section>
+        </div>
+
+        <section class="locations-section">
+          <div class="section-title">
+            <div>
+              <p class="eyebrow">SELECTED LOCATIONS</p>
+              <h2>Keep an eye on your world.</h2>
+            </div>
+            <span class="shortcut">⌘ K <span>to search</span></span>
+          </div>
+          <div class="location-cards" id="locationCards"></div>
+        </section>
+      </section>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
